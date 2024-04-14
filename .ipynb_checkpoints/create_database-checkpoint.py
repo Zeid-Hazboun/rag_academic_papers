@@ -3,15 +3,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores.chroma import Chroma
-import sys
 import os
 import shutil
 
 CHROMA_PATH = "chroma"
 
 # DATA_PATH = "data/books"
-# DATA_PATH = str(input("What is the path to your folder?: "))
-
+DATA_PATH = str(input("What is the path to your folder?: "))
 
 
 def main():
@@ -61,9 +59,4 @@ def save_to_chroma(chunks: list[Document]):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 pdf_to_markdown.py <pdf_file_path>")
-        sys.exit(1)
-    
-    DATA_PATH = sys.argv[1]
     main()
