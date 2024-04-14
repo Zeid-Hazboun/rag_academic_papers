@@ -40,6 +40,7 @@ if __name__ == "__main__":
         print("Usage: python3 pdf_to_markdown.py <pdf_file_path>")
         sys.exit(1)
     
+    #Taking pdf path from arguments
     pdf_path = sys.argv[1]
     markdown_output_path = os.path.splitext(pdf_path)[0] + '.md'
 
