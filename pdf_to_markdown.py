@@ -36,15 +36,35 @@ def save_to_markdown(markdown_text, output_file):
         file.write(markdown_text)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 pdf_to_markdown.py <pdf_file_path>")
-        sys.exit(1)
+    # if len(sys.argv) < 2:
+    #     print("Usage: python3 pdf_to_markdown.py <pdf_file_path>")
+    #     sys.exit(1)
     
-    #Taking pdf path from arguments
-    pdf_path = sys.argv[1]
-    markdown_output_path = os.path.splitext(pdf_path)[0] + '.md'
+    # #Taking pdf path from arguments
+    # pdf_path = sys.argv[1]
+    # markdown_output_path = "data/papers" + os.path.splitext(pdf_path)[0] + '.md'
 
-    text = extract_text_from_pdf(pdf_path)
-    cleaned_text = clean_up_text(text)
-    markdown = convert_to_markdown(cleaned_text)
-    save_to_markdown(markdown, markdown_output_path)
+    # text = extract_text_from_pdf(pdf_path)
+    # cleaned_text = clean_up_text(text)
+    # markdown = convert_to_markdown(cleaned_text)
+    # save_to_markdown(markdown, markdown_output_path)
+
+
+    if len(sys.argv) < 2:
+        print("Usage: python3 pdf_to_markdown.py <folder_path>")
+        sys.exit(1)
+
+    # Taking folder path from arguments
+    folder_path = sys.argv[1]
+
+    # Iterate over files in the folder
+    for filename in os.listdir(folder_path):
+        # Check if the file is a PDF
+        if filename.endswith('.pdf'):
+            pdf_path = os.path.join(folder_path, filename)
+            markdown_output_path = os.path.join("data/papers_md", os.path.splitext(filename)[0] + '.md')
+
+            text = extract_text_from_pdf(pdf_path)
+            cleaned_text = clean_up_text(text)
+            markdown = convert_to_markdown(cleaned_text)
+            save_to_markdown(markdown, markdown_output_path)
