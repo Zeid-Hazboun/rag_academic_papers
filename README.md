@@ -2,7 +2,7 @@
 
 Most of the code is originally from the following youtube tutorial: https://www.youtube.com/watch?v=tcqEUSNCn8I&t=254s&ab_channel=pixegami
 
-This projects started off as a tutorial on how to implement RAG using langchain. Once implemented, I wanted a way to make this useful for myself and other students. The steps for running the scripts can be seen below. There are still currently some problems with the file. It works for one paper ("attention is all you need"), however note for the other papers in the data/papers_pdf folder/
+This projects started off as a tutorial on how to implement RAG using langchain. Once implemented, I wanted a way to make this useful for myself and other students. The steps for running the scripts can be seen below. There are still currently some problems with the file. It works for one paper ("attention is all you need"), however not for the other papers in the data/papers_pdf folder/
 
 Install dependencies.
 
